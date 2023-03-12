@@ -85,6 +85,16 @@
             "styles": ["@angular/material/prebuilt-themes/indigo-pink.css", "src/styles.scss"],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "string-hasher:build:production",
+            "firebaseProject": "string-hasher",
+            "firebaseHostingSite": "string-hasher"
+          }
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "string-hasher": {
+      "hosting": {
+        "string-hasher": [
+          "string-hasher"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "string-hasher"
+  }
+}
