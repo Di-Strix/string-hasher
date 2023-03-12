@@ -2,5 +2,78 @@
   color="primary"
   class="mat-elevation-z6"
 >
-  <span>String hasher</span>
+  <div class="content-container">
+    <span>String Hasher</span>
+  </div>
 </mat-toolbar>
+
+<div
+  class="content-container"
+  [formGroup]="form"
+>
+  <mat-form-field
+    appearance="fill"
+    class="input"
+    subscriptSizing="dynamic"
+  >
+    <mat-label>Данные для хеширования</mat-label>
+    <input
+      matInput
+      formControlName="input"
+      spellcheck="false"
+    />
+  </mat-form-field>
+
+  <mat-icon class="op">add</mat-icon>
+
+  <mat-form-field
+    appearance="fill"
+    class="input"
+    subscriptSizing="dynamic"
+  >
+    <mat-label>Мусор</mat-label>
+    <input
+      matInput
+      formControlName="garbage"
+      spellcheck="false"
+    />
+  </mat-form-field>
+
+  <mat-icon class="op">keyboard_double_arrow_down</mat-icon>
+
+  <app-readonly-field
+    label="SHA1 хеш"
+    [value]="form.controls.fullHash.value"
+  >
+  </app-readonly-field>
+
+  <mat-icon class="op">content_cut</mat-icon>
+
+  <mat-form-field
+    appearance="fill"
+    class="input"
+    subscriptSizing="dynamic"
+    spellcheck="false"
+    hideRequiredMarker="true"
+  >
+    <mat-label>Символов с конца</mat-label>
+    <input
+      type="number"
+      min="1"
+      max="40"
+      step="1"
+      matInput
+      formControlName="hashLength"
+    />
+    <mat-error *ngIf="form.controls.hashLength.hasError('min')">Минимально допустимое значение: 1</mat-error>
+    <mat-error *ngIf="form.controls.hashLength.hasError('max')">Максимально допустимое значение: 40</mat-error>
+  </mat-form-field>
+
+  <mat-icon class="op">keyboard_double_arrow_down</mat-icon>
+
+  <app-readonly-field
+    label="Хеш"
+    [value]="form.controls.resultingHash.value"
+  >
+  </app-readonly-field>
+</div>

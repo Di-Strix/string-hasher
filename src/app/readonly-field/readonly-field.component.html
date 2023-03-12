@@ -1,0 +1,21 @@
+<mat-form-field
+  appearance="outline"
+  class="input readonly"
+  subscriptSizing="dynamic"
+>
+  <mat-label>{{ label }}</mat-label>
+  <textarea
+    matInput
+    cdkTextareaAutosize
+    [value]="value"
+    readonly="true"
+  ></textarea>
+  <button
+    mat-icon-button
+    matSuffix
+    matTooltip="Скопировать"
+    (click)="copy()"
+  >
+    <mat-icon matSuffix>content_copy</mat-icon>
+  </button>
+</mat-form-field>
